@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,26 +18,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
-});
-Route::get('/index', function () {
     return view('index');
 });
-Route::get('/about', function () {
-    return view('about');
-});
+
+Route::get('/about', [PostController::class, 'index'])->name('about');
+
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/news', function () {
     return view('news');
 });
-Route::get('/product', function () {
-    return view('product');
-});
 Route::get('/program', function () {
     return view('program');
 });
+Route::get('/login', function () {
+    return view('auth.login');
+});
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::resource('posts', PostController::class);
+
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+
+Route::get('profile/edit', [HomeController::class, 'edit'])->name('profile.edit');
+
+Route::put('profile/{id}', [HomeController::class, 'update'])->name('profile.update');
+

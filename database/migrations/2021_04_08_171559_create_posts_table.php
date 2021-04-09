@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUtsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateUtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('uts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('gambar');
+            $table->text('artikel');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateUtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uts');
+        Schema::dropIfExists('posts');
     }
 }

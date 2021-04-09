@@ -118,49 +118,17 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($posts as $Post)
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="recent-post-container">
-                    <h3 class="text-uppercase recent-post-title margin-bottom-30"><span
-                            class="font-weight-700">Aenean</span> <span
-                            class="font-weight-300 blue-text">Sollicitum</span></h3>
+                    <h3 class="text-uppercase recent-post-title margin-bottom-30">
+                        <span class="font-weight-700">{{ $Post->judul}}</span> 
+                    </h3>
                     <img src="img/14.jpg" alt="Image" class="img-responsive margin-bottom-30">
-                    <p class="justify-text"><span class="red-text">Aenean sollicitudin</span>, lorem quis bibendum
-                        auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
-                        vulputate cursus a sit amet mauris.</p>
+                    <p class="justify-text"><span class="red-text">{{ $Post->judul}}</span>, {{ $Post->artikel}}</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="recent-post-container">
-                    <h3 class="text-uppercase recent-post-title margin-bottom-30"><span
-                            class="font-weight-700">Lorem</span> <span class="font-weight-300 blue-text">Ipsums</span>
-                    </h3>
-                    <img src="img/15.jpg" alt="Image" class="img-responsive margin-bottom-30">
-                    <p class="justify-text"><span class="red-text">Aenean sollicitudin</span>, lorem quis bibendum
-                        auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
-                        vulputate cursus a sit amet mauris.</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="recent-post-container">
-                    <h3 class="text-uppercase recent-post-title margin-bottom-30"><span
-                            class="font-weight-700">Duis</span> <span class="font-weight-300 blue-text">Sedoido</span>
-                    </h3>
-                    <img src="img/16.jpg" alt="Image" class="img-responsive margin-bottom-30">
-                    <p class="justify-text"><span class="red-text">Aenean sollicitudin</span>, lorem quis bibendum
-                        auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
-                        vulputate cursus a sit amet mauris.</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="recent-post-container">
-                    <h3 class="text-uppercase recent-post-title margin-bottom-30"><span
-                            class="font-weight-700">Amet</span> <span class="font-weight-300 blue-text">Nigh</span></h3>
-                    <img src="img/17.jpg" alt="Image" class="img-responsive margin-bottom-30">
-                    <p class="justify-text"><span class="red-text">Aenean sollicitudin</span>, lorem quis bibendum
-                        auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh
-                        vulputate cursus a sit amet mauris.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

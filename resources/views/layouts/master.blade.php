@@ -40,11 +40,11 @@
                     <div class="col-lg-9 col-md-8 col-sm-8 templatemo-nav-container">
                         <nav class="templatemo-nav">
                             <ul>
-                                <li><a href="{{ url('../index') }}">Home</a></li>
+                                <li><a href="{{ url('../') }}">Home</a></li>
                                 <li><a href="{{ url('../about') }}">About</a></li>
                                 <li><a href="{{ url('../news') }}">News</a></li>
                                 <li><a href="{{ url('../program') }}">Program</a></li>
-                                <li><a href="{{ url('../product') }}">Product</a></li>
+                                <li><a href="{{ url('../login') }}">Login</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -71,11 +71,11 @@
             <h3 class="text-uppercase">Main menu</h3>
             <nav class="text-uppercase templatemo-nav-2">
                 <ul>
-                    <li><a href="{{ url('../index') }}">Home</a></li>
+                    <li><a href="{{ url('../') }}">Home</a></li>
                     <li><a href="{{ url('../about') }}">About</a></li>
                     <li><a href="{{ url('../news') }}">News</a></li>
                     <li><a href="{{ url('../program') }}">Program</a></li>
-                    <li><a href="{{ url('../product') }}">Product</a></li>
+                    <li><a href="{{ url('../login') }}">Login</a></li>
                     <li><a href="{{ url('../contact') }}">Contact</a></li>
                 </ul>
             </nav>

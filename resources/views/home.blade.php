@@ -2,28 +2,48 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-
-                    <table class="table table-responsive">
-                        <tr><th>Username</th><th>:</th><td>{{ $user -> username }}</td></tr>
-                        <tr><th>Name</th><th>:</th><td>{{ $user -> name }}</td></tr>
-                        <tr><th>E-Mail</th><th>:</th><td>{{ $user -> email }}</td></tr>
-                    </table>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left mt-2">
+            <h2>DAFTAR ARTIKEL MULTI PROFILE</h2>
+        </div>
+        <div class="float-right my-2">
+            <a class="btn btn-success" href="{{ route('posts.create') }}"> Input Post</a>
+            <a class="btn btn-secondary " href="{{ route('about') }}">Kembali</a>
         </div>
     </div>
 </div>
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
+
+<table class="table table-bordered">
+    <tr>
+        <th>Judul</th>
+        <th>Gambar</th>
+        <th>Artikel</th>
+        <th width="280px">Action</th>
+    </tr>
+    @foreach ($posts as $Post)
+    <tr>
+        <td>{{ $Post->judul }}</td>
+        <td>{{ $Post->gambar }}</td>
+        <td>{{ $Post->artikel }}</td>
+        <td>
+            <form action="{{ route('posts.destroy',$Post->id) }}" method="POST">
+                <a class="btn btn-info" href="{{ route('posts.show',$Post->id) }}">Show</a>
+                <a class="btn btn-primary" href="{{ route('posts.edit',$Post->id) }}">Edit</a>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    @endforeach
+
+</table>
+</div>
+
 @endsection
